@@ -7,18 +7,20 @@ on:
       - main
       - 'dev-*' #dev new or dev-this-is-new
       - 'feat/**' #feat/new or feat/new/button
+      - test-pull-request-workflow
   workflow_dispatch:
   push:
     branches:
       - main
       - 'dev-*' #dev new or dev-this-is-new
       - 'feat/**' #feat/new or feat/new/button
+      - test-pull-request-workflow
     paths-ignore:
       - '.github/workflows/*'
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Output event data
         run: echo "${{ toJSON(github.event) }}"
